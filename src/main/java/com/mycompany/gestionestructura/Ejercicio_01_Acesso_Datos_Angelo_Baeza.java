@@ -1,47 +1,60 @@
 package com.mycompany.gestionestructura;
 
-
-import java.nio.file.*;
 import java.io.IOException;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Ejercicio_01_Acesso_Datos_Angelo_Baeza {
-    public static void main(String[] args) {
-        // 1. Definir las rutas base utilizando Paths.get()
-        Path raiz = Paths.get(".");
-        Path srcJunit = raiz.resolve("src/junit");
-        Path bin = raiz.resolve("bin");
-        Path img = raiz.resolve("img");
 
-        Path readme = raiz.resolve("readme.md");
-        Path runJava = raiz.resolve("src/run.java");
-        Path imagen = raiz.resolve("img/imagen");
+    public static void main(String[] args) {
+        
+        // Rutas de carpetas y ficheros pedidos
+        Path dirSrcJunit = Paths.get("src/junit");
+        Path dirBin = Paths.get("bin");
+        Path dirImg = Paths.get("img");
+
+        Path fileReadme = Paths.get("readme.md");
+        Path fileRun = Paths.get("src/run.java");
+        Path fileImagen = Paths.get("img/imagen");
 
         try {
-            // 2. Crear los directorios
-            Files.createDirectories(srcJunit); 
-            Files.createDirectories(bin);      
-            Files.createDirectories(img);      
+            // Crear las carpetas si no existen
+            Files.createDirectories(dirSrcJunit);
+            Files.createDirectories(dirBin);
+            Files.createDirectories(dirImg);
 
-            // 3. Crear los ficheros comprobando primero si existen
-            if (!Files.exists(readme)) Files.createFile(readme);
-            if (!Files.exists(runJava)) Files.createFile(runJava);
-            if (!Files.exists(imagen)) Files.createFile(imagen);
+            // Crear los archivos comprobando antes si ya están creados
+            if (!Files.exists(fileReadme)) {
+                Files.createFile(fileReadme);
+            }
+            if (!Files.exists(fileRun)) {
+                Files.createFile(fileRun);
+            }
+            if (!Files.exists(fileImagen)) {
+                Files.createFile(fileImagen);
+            }
 
-            // 4. Comprobar la existencia por pantalla
-            System.out.println("--- COMPROBACIÓN DE EXISTENCIA ---");
-            System.out.println("¿Existe readme.md? " + Files.exists(readme));
-            System.out.println("¿Existe src/run.java? " + Files.exists(runJava));
-            System.out.println("¿Existe img/imagen? " + Files.exists(imagen));
-            System.out.println("¿Existe src/junit? " + Files.exists(srcJunit));
+            // Comprobación de existencia
+            System.out.println("Comprobando existencia de ficheros y carpetas:");
+            System.out.println("readme.md: " + Files.exists(fileReadme));
+            System.out.println("src/run.java: " + Files.exists(fileRun));
+            System.out.println("img/imagen: " + Files.exists(fileImagen));
+            System.out.println("src/junit: " + Files.exists(dirSrcJunit));
+            System.out.println("bin: " + Files.exists(dirBin));
 
-            // 5. Recorrer el contenido y mostrarlo por pantalla
-            System.out.println("\n--- CONTENIDO DEL DIRECTORIO ---");
-            Files.walk(raiz).forEach(path -> {
-                System.out.println("- " + path.getFileName());
-            });
+            // Listar el contenido del directorio del proyecto
+            System.out.println("\nContenido en el directorio:");
+            Path actual = Paths.get(".");
+            try (DirectoryStream<Path> stream = Files.newDirectoryStream(actual)) {
+                for (Path p : stream) {
+                    System.out.println(" - " + p.getFileName());
+                }
+            }
 
         } catch (IOException e) {
-            System.err.println("Error de E/S: " + e.getMessage());
+            System.out.println("Error al gestionar los ficheros: " + e.getMessage());
         }
     }
 }
