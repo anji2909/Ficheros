@@ -8,6 +8,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>23</maven.compiler.release>
-        <exec.mainClass>com.mycompany.gestionestructura.GestionEstructura</exec.mainClass>
+        <exec.mainClass>com.mycompany.gestionestructura.Ejercicio_01_Acesso_Datos_Angelo_Baeza</exec.mainClass>
     </properties>
+    <name>Ejercicio01_java</name>
 </project>

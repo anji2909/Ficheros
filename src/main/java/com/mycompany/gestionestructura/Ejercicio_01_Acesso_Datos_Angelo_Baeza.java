@@ -4,7 +4,7 @@ package com.mycompany.gestionestructura;
 import java.nio.file.*;
 import java.io.IOException;
 
-public class GestionEstructura {
+public class Ejercicio_01_Acesso_Datos_Angelo_Baeza {
     public static void main(String[] args) {
         // 1. Definir las rutas base utilizando Paths.get()
         Path raiz = Paths.get(".");
