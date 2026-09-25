@@ -1,10 +1,7 @@
 package com.mycompany.gestionestructura;
 
 import java.io.IOException;
-import java.nio.file.DirectoryStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 
 public class Ejercicio_01_Acesso_Datos_Angelo_Baeza {
 
