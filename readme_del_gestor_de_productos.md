@@ -1,6 +1,6 @@
 # UT1 - Gestor de Productos CSV (GestorProductosRA1)
 
-**Autor:** Angelo Francisco Baeza Olave
+**Autor:** Angelo Francisco Baeza 
 **Módulo:** Programación (2º DAM)
 
 ## Descripción

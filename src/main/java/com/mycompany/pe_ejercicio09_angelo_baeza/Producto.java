@@ -1,7 +1,7 @@
 
 package com.mycompany.pe_ejercicio09_angelo_baeza;
 
-
+// clase prodoicto con sius atributos y gtters
 public class Producto {
     
     private int id;

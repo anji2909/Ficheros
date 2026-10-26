@@ -44,7 +44,7 @@ public class GestorProductosRA1 {
 
         }
 
-        //MENU.
+        //MENU
         Scanner sc = new Scanner(System.in);
         int opcion = -1;
 
